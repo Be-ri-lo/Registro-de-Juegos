@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Games</h1>
+
+<div class="row">
+  <% @games.each do |game| %>
+    <div class="card" style="width: 18rem;">
+      <%= image_tag game.cover.variant(resize:'100x100').processed, class:"card-img-top"%>
+      
+      <div class="card-body">
+        <h5 class="card-title"> <%= game.name %> </h5>
+      </div>
+      
+      <div class="card-body">
+        <%= link_to 'Show', game, class:"card-link" %>
+        <%= link_to 'Edit', edit_game_path(game), class:"card-link" %>
+        <%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' }, class:"card-link" %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
+
+
+
+
+
+
+
+<%= link_to 'New Game', new_game_path %>
